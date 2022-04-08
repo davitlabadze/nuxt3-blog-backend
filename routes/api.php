@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/post', [PostController::class, 'store'])->name('post.store');
+// Route::group(['middleware' => ['auth:sanctum']], function () {
+
+// });
 
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
-Route::post('/post', [PostController::class, 'store'])->name('post.store');
